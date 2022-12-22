@@ -2,8 +2,9 @@
 var generateBtn = document.querySelector("#generate");
 var arrayUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var arrayLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var arraySpecial = ["!", "@", "#", "$", "%", "&", "*"];
+var arraySpecial = ["~", "1", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", "|", ":", ";", "'", "<", ">", ",", ".", "?"];
 var num = Math.floor(Math.random() * 10);
+
 
 // Write password to the #password input
 function writePassword() {
@@ -18,6 +19,7 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword(){
+  var passLength = prompt("Set desired password length from 8 to 128 characters.");
   // must return a string value that is the password.
   // prompt user to choose num btwn 8 and 128
     // var to save length
@@ -34,3 +36,4 @@ function generatePassword(){
   
   return passwordString;
 }
+generatePassword();
