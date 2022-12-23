@@ -20,12 +20,12 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword(){
   var passLength = prompt("Set desired password length from 8 to 128 characters.");
-  
+  var passArray = [];
   // must return a string value that is the password.
   // prompt user to choose num btwn 8 and 128
     // var to save length
     // validate user num
-   if (passLength < 8) {
+  if (passLength < 8) {
     alert("Try again, partner.");
     return;
   }
@@ -55,29 +55,44 @@ function generatePassword(){
       // variables that include all user options of each category. Array of string for each category.
     // var upper = ["A," "B,"]
   // If user says yes to include that category, choose random(Math.random) element(s) from array.
-  if (passUpper === true) {
-    var randomUpper = arrayUpper[Math.floor(Math.random() * arrayUpper.length)]
-    console.log(randomUpper);
-  }
+  for (var i = 0; i <= passLength;) {
+    if (passUpper === true) {
+    var randomUpper = arrayUpper[Math.floor(Math.random() * arrayUpper.length)];
+    passArray.push(randomUpper);
+    console.log(passArray);
+    i++;
+    }
   
-  if (passLower === true) {
-    var randomLower = arrayLower[Math.floor(Math.random() * arrayLower.length)]
-    console.log(randomLower);
-  }
+    if (passLower === true) {
+    var randomLower = arrayLower[Math.floor(Math.random() * arrayLower.length)];
+    passArray.push(randomLower);
+    console.log(passArray);
+    i++;
+    }
 
-  if (passNum === true) {
+    if (passNum === true) {
     var num = Math.floor(Math.random() * 10);
-  }
+    passArray.push(num);
+    console.log(passArray);
+    i++;
+    }
 
-  if (passSpecial === true) {
-    var randomSpecial = arraySpecial[Math.floor(Math.random() * arraySpecial.length)]
+    if (passSpecial === true) {
+    var randomSpecial = arraySpecial[Math.floor(Math.random() * arraySpecial.length)];
     console.log(randomSpecial);
-  }
+    passArray.push(randomSpecial);
+    console.log(passArray);
+    i++;
+    }
+    // **This function will iterate too many times, finishing the full loop before checking if i <=passLength
+    // ** Need to apply toString() to make array string.
+    // ** Find way to randomize string itself if possible
+
     // How to decide how many elements to choose from each array
 
-  // Join chosen elements into a string
-  for (var i = 0; i <= passLength; i++) {
+    // Join chosen elements into a string
+ 
 
   }
-  return passwordString;
+  return passwordString = passArray;
 }
